@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import './fileUpload.style.css';
 
@@ -7,6 +7,7 @@ export const FileUpload = ()=>{
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [title , setTitle] = useState("");
   const [price , setPrice] = useState("");
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -40,7 +41,16 @@ export const FileUpload = ()=>{
         },
       });
 
+      setTitle("");
+      setPrice("");
+      setSelectedFile(null);
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+
       console.log('Upload successful', response);
+
     } catch (error) {
       console.error('Upload failed', error);
     }
@@ -51,9 +61,9 @@ export const FileUpload = ()=>{
       <div className="outerImageContainer">
         <div className="imageContainer">
             <form onSubmit={handleUpload}>
-              <input type="text" name="title" placeholder="Enter title" onChange={(e)=>{setTitle(e.target.value)}} />
-              <input type="text" name="price" placeholder="Enter Price" onChange={(e)=>{setPrice(e.target.value)}} />
-              <input  type="file" name="images" onChange={handleFileChange}  />     
+              <input type="text" name="title" placeholder="Enter title" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
+              <input type="text" name="price" placeholder="Enter Price" value={price} onChange={(e)=>{setPrice(e.target.value)}} />
+              <input  type="file" name="images"  onChange={handleFileChange} ref={fileInputRef} />     
               <button className='submit-btn' type="submit" onClick={handleUpload}>
                 Upload
               </button>
