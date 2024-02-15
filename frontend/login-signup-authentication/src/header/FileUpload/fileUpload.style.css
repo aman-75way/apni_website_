@@ -1,0 +1,18 @@
+.outerImageContainer{
+    border: 2px solid green;
+    background-color: #97BC62;
+    border-radius : 10px;
+    max-width: 25vw;
+    margin-left: 30vw;
+    margin-top: 25vh;
+}
+
+.imageContainer{
+    margin: 30px;
+    border-radius: 10px;
+}
+
+.submit-btn{
+    background-color: green;
+}
+
