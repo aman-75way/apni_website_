@@ -17,12 +17,12 @@ const Navbar: React.FC = () => {
         ? 
             <>
               <li><Link to="/profile">Profile</Link></li>
+              <li><Link to="/fileUpload">File_Upload</Link></li>
+              <li><Link to="/showProduct">Display_Products</Link></li>
               <li><Link to="/logout">Logout</Link></li>
             </>
         :
         <>
-              <li><Link to="/fileUpload">File_Upload</Link></li>
-              <li><Link to="/showProduct">Display_Products</Link></li>
               <li><Link to="/signup">Signup</Link></li>
               <li><Link to="/login">Login</Link></li>
             </>

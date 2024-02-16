@@ -43,6 +43,7 @@ export const FileUpload = ()=>{
         },
       });
 
+      alert("File Uploaded Successfully");
       setTitle("");
       setPrice("");
       setSelectedFile(null);
