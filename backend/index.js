@@ -13,6 +13,7 @@ import { sendMail } from './controller/mail-controller.js';
 import { uploadHandler } from './controller/upload-controller.js';
 import { upload } from './Multer/multer.configuration.js';
 import { dataUpload } from './middleware/product-middleware.js';
+import { displayProduct } from './controller/displayProduct-controller.js';
 
 const app = express();
 app.use(bodyParser.json());
@@ -40,6 +41,9 @@ app.get('/userDetails' , authMiddleware , userDetails)
 
 
 app.post('/api/upload'  , upload.single("images") , uploadHandler)
+
+
+app.get('/api/displayProduct' , displayProduct);
 
 
 app.post('/signup' , sendMail, userSignUp);
