@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import axios from "axios";
 import './fileUpload.style.css';
+import { Link } from "react-router-dom";
 
 
 export const FileUpload = ()=>{
@@ -8,6 +9,7 @@ export const FileUpload = ()=>{
   const [title , setTitle] = useState("");
   const [price , setPrice] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [uploaded , setUploaded] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -49,7 +51,8 @@ export const FileUpload = ()=>{
         fileInputRef.current.value = '';
       }
 
-      console.log('Upload successful', response);
+      // console.log('Upload successful', response);
+      setUploaded(true);
 
     } catch (error) {
       console.error('Upload failed', error);
@@ -57,21 +60,41 @@ export const FileUpload = ()=>{
   };
 
   return (
-    <div>
-      <div className="outerImageContainer">
-        <div className="imageContainer">
+        <div className="outerImageContainer">
+          <div className="imageContainer">
             <form onSubmit={handleUpload}>
-              <input type="text" name="title" placeholder="Enter title" value={title} onChange={(e)=>{setTitle(e.target.value)}} />
-              <input type="text" name="price" placeholder="Enter Price" value={price} onChange={(e)=>{setPrice(e.target.value)}} />
-              <input  type="file" name="images"  onChange={handleFileChange} ref={fileInputRef} />     
-              <button className='submit-btn' type="submit" onClick={handleUpload}>
+              <input
+                type="text"
+                name="title"
+                placeholder="Enter title"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              />
+              <input
+                type="text"
+                name="price"
+                placeholder="Enter Price"
+                value={price}
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+              />
+              <input
+                type="file"
+                name="images"
+                onChange={handleFileChange}
+                ref={fileInputRef}
+              />
+              <button className="submit-btn" type="submit" onClick={handleUpload}>
                 Upload
               </button>
             </form>
+          </div>
         </div>
-      </div>
-    </div>
   );
+  
 };
 
 
