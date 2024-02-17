@@ -1,6 +1,6 @@
 .outerImageContainer{
     border: 2px solid green;
-    background-color: #97BC62;
+    background-color: var(--background-color);
     border-radius : 10px;
     max-width: 25vw;
     margin-left: 35vw;

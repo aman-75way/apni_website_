@@ -1,7 +1,8 @@
 /* src/components/Navbar.css */
+@import '../../src/globalValues/globalVariables.css';
 
 .navbar {
-    background-color: #2C5F2D; /* Set your desired background color */
+    background-color: var(--header-color); /* Set your desired background color */
     height: 70px; /* Set your desired height */
     display: flex;
     align-items: center;
