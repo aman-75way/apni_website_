@@ -13,6 +13,8 @@ import { sendMail } from './controller/mail-controller.js';
 import { uploadHandler } from './controller/upload-controller.js';
 import { upload } from './Multer/multer.configuration.js';
 import { displayProduct } from './controller/displayProduct-controller.js';
+import { validateLogin } from './middleware/login-middleware.js';
+import { validateSignUp } from './middleware/signup-middleware.js';
 
 const app = express();
 app.use(bodyParser.json());
@@ -71,10 +73,10 @@ app.post('/api/upload'  , upload.single("images") , uploadHandler)
 app.get('/api/displayProduct' , displayProduct);
 
 
-app.post('/signup' , sendMail, userSignUp);
+app.post('/signup' , validateSignUp ,  sendMail, userSignUp);
 
 
-app.post('/login' , userLogin);
+app.post('/login' , validateLogin , userLogin);
 
 
 app.post('/forgetPassword' , forgetPassword);

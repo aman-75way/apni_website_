@@ -117,14 +117,14 @@ export function UserProvider({ children }: UserProviderProps) {
 
   const userAuthentication = async (serverToken : string)=> {
       try {
-        console.log("Jo user ka token hai n  " ,  serverToken);
+        // console.log("Jo user ka token hai n  " ,  serverToken);
         const response = await axios.get('http://localhost:4000/userDetails' , {
           headers : {
             Authorization : `Bearer ${serverToken}`,
           },
         });
         if(response.status === 200){
-          console.log("auth.tsx me response :::: " , response);
+          // console.log("auth.tsx me response :::: " , response);
           const userDetails_ = await response.data;
 
           // console.log(userDetails_);
@@ -141,6 +141,8 @@ export function UserProvider({ children }: UserProviderProps) {
         console.log("Error : " , error);
       }
   }
+
+  
 
 
   return (

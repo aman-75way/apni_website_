@@ -28,4 +28,9 @@
     text-decoration: none;
     font-size: 16px; /* Set your desired font size */
   }
+
+  .logout-list{
+    color: white;
+    cursor: pointer;
+  }
   

@@ -50,7 +50,10 @@ export const Signup = () => {
         }
       } 
       catch (error : any) {
-        console.log("Error : " , error);
+        const fieldPath = error.response.data.errors[0].path;
+        const errorMsg = error.response.data.errors[0].msg
+        console.log(fieldPath , " :: " , errorMsg );
+        alert(`${fieldPath}  ::  ${errorMsg}`)
       }
   }
 
@@ -83,6 +86,7 @@ export const Signup = () => {
           <input type='text' className='formComponent' placeholder='Enter your Password' onChange={(e) => setPassword(e.target.value)} value={password} />
 
           <input type='password' className='formComponent' placeholder='Enter Password Again' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+
           <button type='submit' className='formComponent' > Register </button>
       </form>  
     </div>
