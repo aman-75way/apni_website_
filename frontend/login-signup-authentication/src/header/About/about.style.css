@@ -5,7 +5,7 @@
     padding: 20px;
     border: 2px solid #ddd;
     border-radius: 8px;
-    background-color: #97BC62;
+    background-color: var(--background-color);
   }
 
   .name-container{

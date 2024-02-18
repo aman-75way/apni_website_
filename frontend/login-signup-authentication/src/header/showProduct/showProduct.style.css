@@ -12,7 +12,7 @@
     border: 1px solid #ddd;
     padding: 20px;
     text-align: center;
-    background-color: #97BC62;
+    background-color: var(--background-color);
     border-radius: 30px;
   }
   

@@ -6,7 +6,7 @@
     /* background-color: aqua; */
     border: 2px solid blue;
     border-radius: 8px;
-    background-color: #97BC62;
+    background-color: var(--background-color);
 }
 .profile-component{
     margin-top: 20px;

@@ -5,6 +5,7 @@
     background-color: var(--header-color); /* Set your desired background color */
     height: 70px; /* Set your desired height */
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: auto;
     margin: 0;
@@ -34,3 +35,13 @@
     cursor: pointer;
   }
   
+
+  .navbar.dark-mode {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+  }
+  
+  .toggle-btn {
+    cursor: pointer;
+    margin-left: auto;
+  }
