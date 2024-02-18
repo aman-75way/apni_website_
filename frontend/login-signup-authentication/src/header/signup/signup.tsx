@@ -26,10 +26,10 @@ export const Signup = () => {
               });
 
               if(response.status === 201){
-                  console.log("Response is : " , response);
+                  // console.log("Response is : " , response);
                   const data = await response.data;   // which comes from the backend (index.js)
                   const token = data.token;
-                  console.log("Signup token is : " , token);
+                  // console.log("Signup token is : " , token);
                   // we maintain below one line with the help of store in future......
                   localStorage.setItem("token" , token);
                   // storeTokenInLocalStorage(token);

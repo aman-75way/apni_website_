@@ -88,11 +88,10 @@ import { sendMail } from './mail-controller.js';
         try{
             const existingUser = await User.findOne({name , password});
             // console.log(existingUser);
-            if(existingUser){
-
-                res.status(200).json({message: 'login successful' , token : await existingUser.generateAuthToken() , userId: existingUser._id});
+            if(!existingUser){
+                res.status(400).json({message : 'Invailid Credentials'});
             }else{
-                res.status(401).json({message : 'Invailid Credentials'});
+                res.status(200).json({message: 'login successful' , token : await existingUser.generateAuthToken() , userId: existingUser._id});
             }
         }catch(err){
             console.log("Error : " , err);
