@@ -10,9 +10,10 @@ import { Profile } from '../header/profile/Profile';
 import { Logout } from '../header/logout/Logout';
 import { Forget_Password } from '../header/forget-password/Forget_Password';
 import { FileUpload } from '../header/FileUpload/FileUpload';
-import { ShowProduct } from '../header/showProduct/ShowProduct';
+import { ShowProduct } from '../header/Products/showProduct/ShowProduct';
 import Protected from '../protectedRoutes/ProtectedRoutes';
 import { SuccessPage } from '../components/successPage/SuccessPage';
+import { MyUpload } from '../header/Products/MyUpload/MyUpload';
 
 const Routes_: React.FC = () => {
   
@@ -32,6 +33,7 @@ const Routes_: React.FC = () => {
         <Route path='/success' element={<Protected name="success" children={<SuccessPage />} />} />
         <Route path='/showProduct' element={<Protected name="showProduct" children={<ShowProduct />} />} />
         <Route path='/fileUpload' element={<Protected name="fileUpload" children={<FileUpload />} />} />
+        <Route path='/myUpload' element={<Protected name="myUpload" children={<MyUpload />} />} />
         {/* <Route path='/logout' element={<Protected name="logout" children={<Logout />} />} /> */}
         <Route path='/profile' element={<Protected name="profile" children={<Profile />} />} />
 

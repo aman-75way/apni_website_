@@ -41,6 +41,7 @@ const Navbar: React.FC = () => {
               <li><Link to="/profile">Profile</Link></li>
               <li><Link to="/fileUpload">File_Upload</Link></li>
               <li><Link to="/showProduct">Display_Products</Link></li>
+              <li><Link to="/myUpload">My Products</Link></li>
               <li className='logout-list' onClick={logout}>Logout</li>
             </>
         :

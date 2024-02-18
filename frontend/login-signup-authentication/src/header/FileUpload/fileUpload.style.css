@@ -1,5 +1,5 @@
 .outerImageContainer{
-    border: 2px solid green;
+    border: 2px solid var(--header-color);
     background-color: var(--background-color);
     border-radius : 10px;
     max-width: 25vw;
@@ -13,6 +13,6 @@
 }
 
 .submit-btn{
-    background-color: green;
+    background-color: var(--header-color);
 }
 

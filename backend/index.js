@@ -12,7 +12,7 @@ import { authMiddleware } from './middleware/auth-middleware.js';
 import { sendMail } from './controller/mail-controller.js';
 import { uploadHandler } from './controller/upload-controller.js';
 import { upload } from './Multer/multer.configuration.js';
-import { displayProduct } from './controller/displayProduct-controller.js';
+import { displayProduct , myProduct } from './controller/displayProduct-controller.js';
 import { validateLogin } from './middleware/login-middleware.js';
 import { validateSignUp } from './middleware/signup-middleware.js';
 
@@ -67,10 +67,13 @@ app.get('/' , GetHome);
 app.get('/userDetails' , authMiddleware , userDetails)
 
 
-app.post('/api/upload'  , upload.single("images") , uploadHandler)
+app.post('/api/upload'  , upload.single("images") , authMiddleware ,  uploadHandler)
 
 
 app.get('/api/displayProduct' , displayProduct);
+
+
+app.get('/api/myProduct' , authMiddleware ,  myProduct);
 
 
 app.post('/signup' , validateSignUp ,  sendMail, userSignUp);

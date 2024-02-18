@@ -13,7 +13,8 @@ const uploadHandler = async (req,res,next)=>{
     const productData = new Product({
         title,
         price,
-        imageLink: url
+        imageLink: url,
+        user : req.user.id
     });
 
     await productData.save().then(async ()=>{
