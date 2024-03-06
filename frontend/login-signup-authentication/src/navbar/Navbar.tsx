@@ -1,11 +1,10 @@
 // src/components/Navbar.tsx
-import React, { useContext, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import './Navbar.style.css';
 
 const Navbar: React.FC = () => {
   const navigate =useNavigate()
-  const[token,setToken]=useState<string | null>(null)
 
 
   const [darkMode, setDarkMode] = useState<boolean>(false);

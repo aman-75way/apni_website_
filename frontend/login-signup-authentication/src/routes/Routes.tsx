@@ -1,11 +1,11 @@
 // src/components/Routes.tsx
-import React, { Children, Component, useEffect, useState } from 'react';
-import {  Route, Routes as ReactRoutes , Navigate} from 'react-router-dom'; // Use a different name for the import
+import React from 'react';
+import {  Route, Routes as ReactRoutes } from 'react-router-dom'; // Use a different name for the import
 // import ProtectedRoute from './ProtectedRoute.tsx';
 import Home from '../header/Home/Home';
 import About from '../header/About/About';
 import Login from '../header/login/login';
-import { Signup } from '../header/signup/signup';
+import { RegisterDetails } from '../header/Registration/registerDetails';
 import { Profile } from '../header/profile/Profile';
 import { Logout } from '../header/logout/Logout';
 import { Forget_Password } from '../header/forget-password/Forget_Password';
@@ -14,6 +14,8 @@ import { ShowProduct } from '../header/Products/showProduct/ShowProduct';
 import Protected from '../protectedRoutes/ProtectedRoutes';
 import { SuccessPage } from '../components/successPage/SuccessPage';
 import { MyUpload } from '../header/Products/MyUpload/MyUpload';
+import OTP from '../header/OTP-Verification/Otp';
+
 
 const Routes_: React.FC = () => {
   
@@ -23,7 +25,9 @@ const Routes_: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<OTP />} />
+        <Route path="/register" element={<RegisterDetails />} />
+
         {/* <Route path="/showProduct" element={<ShowProduct />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/fileUpload" element={<FileUpload />} />

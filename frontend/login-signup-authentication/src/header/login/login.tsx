@@ -104,6 +104,10 @@ const Login: React.FC = () => {
           />
           <button type="submit" className='form-component'>Login</button>
           <Link className='forget' to='/forgetPassword'> Forget Password ? </Link>
+          <div className="inner-container">
+            Do not have accounts ?
+            <Link to='/signup'> Signup </Link>
+          </div>
         </form>
     </div>
   );

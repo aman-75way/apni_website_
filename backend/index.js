@@ -15,6 +15,7 @@ import { upload } from './Multer/multer.configuration.js';
 import { displayProduct , myProduct } from './controller/displayProduct-controller.js';
 import { validateLogin } from './middleware/login-middleware.js';
 import { validateSignUp } from './middleware/signup-middleware.js';
+import OTP from './Routes/Otp.js';
 
 const app = express();
 app.use(bodyParser.json());
@@ -31,31 +32,7 @@ const PORT = 4000;
 connectDB();
 
 
-// const accountSid = 'AC94ebeb0fb991e18d794ecc92ae6691ea';
-// const authToken = 'abcec0e7b55a3b242096da597e81e9f4';
-
-// const client = require('twilio')(accountSid, authToken);
-
-// client.messages
-//   .create({
-//     body: 'Hello from twilio-node',
-//     to: '+919754234746', // Text your number
-//     from: '+12345678901', // From a valid Twilio number
-//   })
-//   .then((message) => console.log(message.sid));
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.use('/otp' , OTP);
 
 
 app.get('/sendmail' , sendMail)
@@ -76,13 +53,15 @@ app.get('/api/displayProduct' , displayProduct);
 app.get('/api/myProduct' , authMiddleware ,  myProduct);
 
 
-app.post('/signup' , validateSignUp ,  sendMail, userSignUp);
+app.post('/signup' , validateSignUp , userSignUp);
 
 
 app.post('/login' , validateLogin , userLogin);
 
 
 app.post('/forgetPassword' , forgetPassword);
+
+
 
 
 app.listen(PORT , (req,res)=>{

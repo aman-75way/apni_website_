@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import './signup.style.css'
+import './registerDetails.style.css'
 import axios from 'axios';
 import Login from '../login/login';
 
-export const Signup = () => {
+export const RegisterDetails = ({email} : any) => {
   
   const [name , setName ] = useState('');
   const [mobile , setMobile ] = useState('');
-  const [email , setEmail ] = useState('');
   const [gender , setGender ] = useState('');
   const [password , setPassword ] = useState('');
   const [confirmPassword , setConfirmPassword] = useState("");
@@ -36,7 +35,7 @@ export const Signup = () => {
 
                   setName("");
                   setMobile("");
-                  setEmail("");
+                  email = "";
                   setGender("");
                   setPassword("");
                   setConfirmPassword("");
@@ -53,7 +52,7 @@ export const Signup = () => {
         const fieldPath = error.response.data.errors[0].path;
         const errorMsg = error.response.data.errors[0].msg
         console.log(fieldPath , " :: " , errorMsg );
-        alert(`${fieldPath}  ::  ${errorMsg}`)
+        alert(`${fieldPath}  ::  ${errorMsg}`);
       }
   }
 
@@ -74,7 +73,7 @@ export const Signup = () => {
           
           <input type='number' className='formComponent' placeholder='Enter your mobile number' onChange={(e)=>{setMobile(e.target.value)}} />
           
-          <input type='text' className='formComponent' placeholder="Enter your email" onChange={(e)=>{setEmail(e.target.value)}} />
+          <input type='text' className='formComponent' placeholder="Enter your email" value={email} />
 
           <select name='gender' className='formComponent' onChange={(e)=>{setGender(e.target.value)}}>
                 <option value="">Select...</option>

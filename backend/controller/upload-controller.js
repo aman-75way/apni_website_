@@ -23,7 +23,7 @@ const uploadHandler = async (req,res,next)=>{
         console.log("Error at upload in backend : " , err);
     })
 
-    console.log("Image url is : " , url);
+    // console.log("Image url is : " , url);
     // res.send("File uploaded Successfully");
 }
 
