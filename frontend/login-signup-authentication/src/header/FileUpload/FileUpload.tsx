@@ -92,6 +92,13 @@ export const FileUpload = ()=>{
               <button className="submit-btn" type="submit" onClick={handleUpload}>
                 Upload
               </button>
+              <div className="extra-link">
+                All Products...?
+                <Link className="showProduct" to='/showProduct'> See Products </Link>
+                <br />
+                Your Products...?
+                <Link className="showProduct" to='/myUpload'> My Products </Link>
+              </div>
             </form>
           </div>
         </div>

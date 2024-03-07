@@ -1,49 +1,62 @@
-/* src/components/Navbar.css */
 @import '../../src/globalValues/globalVariables.css';
 
 .navbar {
-    background-color: var(--header-color); /* Set your desired background color */
-    height: 70px; /* Set your desired height */
+    background-color: var(--header-color);
+    height: 70px;
     display: flex;
-    /* justify-content: space-between; */
-    /* justify-content: flex-end; */
     align-items: center;
+    justify-content: center;
     width: auto;
     margin: 0;
-    /* margin-bottom: 50px; */
+    background-color: rgb(55, 149, 237);
+    justify-content: space-between; /* Align items to the start and end of the navbar */
+    padding: 0 30px; /* Add padding to the navbar */
   }
   
   .navbar ul {
     list-style-type: none;
+    font-family: "Poppins", sans-serif;
     display: flex;
     margin: 0;
     padding: 0;
-    /* justify-content: flex-end; */
-    /* justify-content: space-between; */
     margin-left: 30px;
+    font-size: 17px; 
+    color: white;
+    align-items: center; /* Center items vertically in the navbar */
   }
   
   .navbar li {
-    margin-right: 20px; /* Adjust the spacing between navbar items */
+    margin-right: 20px;
   }
   
   .navbar a {
-    color: white; /* Set your desired text color */
+    /* color: white;  */
     text-decoration: none;
-    font-size: 16px; /* Set your desired font size */
+    font-size: 17px; 
+    color: white;
+
   }
 
   .logout-list{
-    color: white;
+    /* color: white; */
     cursor: pointer;
   }
   
 
   .navbar.dark-mode {
-    background-color: #333; /* Dark background color */
-    color: #fff; /* Light text color */
+    background-color: #333; 
+    color: #fff; 
   }
   
   .toggle-btn {
     cursor: pointer;
   }
+
+  .right-header{
+    margin-left: 44vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+

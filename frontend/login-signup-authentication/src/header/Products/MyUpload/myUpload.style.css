@@ -20,4 +20,24 @@
     max-width: 100%;
     height: auto;
   }
+
+  .message{
+    border: 2px solid black;
+    margin: 30vh 30vw;
+    padding: 10vh;
+    border-radius: 10px;
+    background-color: var(--background-color);
+  }
+
+  .message h3{
+    align-items: center;
+  }
+  p{
+    align-items: center;
+  }
+
+  .link{
+    text-decoration: none;
+    font-weight: 1000;
+  }
   

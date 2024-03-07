@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import './myUpload.style.css'
 import { UserContext } from "../../../store/auth";
+import { Link } from "react-router-dom";
 
 interface Product {
     _id: string;
@@ -28,17 +29,31 @@ export const MyUpload = ()=>{
     } , []);
 
     return(
-        <div className="product-list">
-            {data.map(product => {
-            // console.log("Image link is : " , product.imageLink); // Log the image_link
-                return (
-                    <div key={product._id} className="product-card">
-                    <img src={product.imageLink} alt={product.title} />
-                    <h3>{product.title}</h3>
-                    <p>{product.price}</p>
-                    </div>
-                );
-            })}
-        </div>
+        <>
+        {data.length === 0 ? (
+            <div className="message">
+                <h3>You have not uploaded any item.</h3>
+                <span className="inner-message">
+                    If want to Upload  ?   
+                </span>
+                <Link className="link" to='/fileUpload' >   Upload Here...</Link>
+            </div>
+        )
+        :
+        (
+            <div className="product-list">
+                {data.map(product => {
+                // console.log("Image link is : " , product.imageLink); // Log the image_link
+                    return (
+                        <div key={product._id} className="product-card">
+                        <img src={product.imageLink} alt={product.title} />
+                        <h3>{product.title}</h3>
+                        <p>{product.price}</p>
+                        </div>
+                    );
+                })}
+            </div>
+        )}
+        </>
     )
 }

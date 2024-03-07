@@ -38,7 +38,7 @@ import { sendMail } from './mail-controller.js';
     // });
 
     
-    const existingUser = await User.findOne({name});
+    const existingUser = await User.findOne({email});
     if(existingUser) res.send("User exists already");
     else{
             // const token = await userData.generateAuthToken();

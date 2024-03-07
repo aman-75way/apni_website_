@@ -9,7 +9,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
         <App />
-        {/* <LocationFetch /> */}
     </BrowserRouter>
   </React.StrictMode>,
 )

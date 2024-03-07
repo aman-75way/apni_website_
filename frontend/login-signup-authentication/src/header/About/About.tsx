@@ -12,7 +12,7 @@ const About: React.FC = () => {
       <h3 className='name-container'> Hello , {userData.userName} </h3>
       <p>
         Welcome to our website, <br></br>
-        This website is designed by <b>Mr. Aman Kumar Tiwari </b> , working on <b>75way technologies pvt. ltd.</b> as an <b>Intern</b>
+        This website is designed by <b>Mr. Aman Kumar Tiwari </b> , working on <b>Helios tech pvt. ltd.</b> as an <b>Intern</b>
 
       </p>
       <p>
