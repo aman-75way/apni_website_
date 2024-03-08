@@ -1,3 +1,9 @@
+
+.outer-outerImageContainer{
+    background-image: url('../../../assets/dark-background.jpg');
+    border: 2px solid rebeccapurple;
+    min-height: calc(100vh - 77px);
+}
 .outerImageContainer{
     border: 2px solid var(--header-color);
     background-color: var(--background-color);
@@ -5,6 +11,7 @@
     max-width: 25vw;
     margin-left: 35vw;
     margin-top: 25vh;
+    background-image: url('../../assets/bg.png');
 }
 
 .imageContainer{

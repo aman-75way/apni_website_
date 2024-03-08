@@ -1,4 +1,9 @@
-
+.outer-product-list-container{
+  background-image: url('../../../assets/dark-background.jpg');
+  /* border: 2px solid rebeccapurple; */
+  min-height: calc(100vh - 73px);
+  display: flex;
+}
 
 .product-list {
     display: grid;
@@ -20,4 +25,29 @@
     max-width: 100%;
     height: auto;
   }
+
+  .right-container{
+    /* border: 2px solid red; */
+    /* position: fixed; */
+    min-width: 12vw;
+    max-height: 4vh;
+    background-color: var(--background-color);
+    display: 'flex';
+    /* justify-content: center; */
+    align-items: 'center';
+    padding: 10px;
+
+    border-radius: 10px;
+  }
   
+  .link-to-upload{
+    color: white;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Remove underline from the link */
+  }
+
+  .link-to-upload:hover {
+    color: blue; /* Change the color for hover state */
+  }

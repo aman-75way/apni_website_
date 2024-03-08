@@ -84,9 +84,9 @@ import { sendMail } from './mail-controller.js';
 
     const userLogin = async function(req,res){
         
-        const {name , password} = req.body;
+        const {email , password} = req.body;
         try{
-            const existingUser = await User.findOne({name , password});
+            const existingUser = await User.findOne({email , password});
             // console.log(existingUser);
             if(!existingUser){
                 res.status(400).json({message : 'Invailid Credentials'});

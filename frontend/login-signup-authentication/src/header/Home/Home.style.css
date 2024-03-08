@@ -1,8 +1,11 @@
 /* src/components/Home.css */
 .home-container {
     position: relative;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 77px);
     overflow: hidden;
+    border: 2px solid rebeccapurple;
+    /* background-image: url('../../assets/bg.png'); */
+    background-image: url('../../assets/dark-background.jpg');
   }
   
   .home-background {
@@ -25,7 +28,7 @@
     text-align: center;
     color: #fff;
     border: 2px solid rgb(43, 0, 255);
-    background-color: rgb(55, 149, 237);
+    background-color: var(--background-color);
   }
 
 

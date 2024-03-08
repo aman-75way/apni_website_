@@ -1,11 +1,16 @@
-/* src/components/About.css */
-.about-container {
-    max-width: 50vw;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    background-color: var(--background-color);
+  .outer-about-container{
+    background-image: url('../../assets/dark-background.jpg');
+      border: 2px solid rebeccapurple;
+      min-height: calc(100vh - 77px);
+  }
+
+  .about-container {
+      max-width: 50vw;
+      margin: 50px auto;
+      padding: 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      background-color: var(--background-color);
   }
 
   .name-container{

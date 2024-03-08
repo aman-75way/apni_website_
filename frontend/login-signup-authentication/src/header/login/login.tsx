@@ -10,7 +10,7 @@ import { errors } from 'jose';
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   const [password, setPassword] = useState('');
   // const { storeTokenInLocalStorage , userAuthentication } = useContext(UserContext);
@@ -19,7 +19,7 @@ const Login: React.FC = () => {
 
     try {
       const response = await axios.post('http://localhost:4000/login', {
-        name,
+        email,
         password
       });
 
@@ -91,9 +91,9 @@ const Login: React.FC = () => {
           <input
             type="text"
             className='form-component'
-            placeholder="Enter Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"

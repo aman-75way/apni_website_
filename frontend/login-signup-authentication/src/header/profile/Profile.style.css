@@ -1,3 +1,10 @@
+.outer-profile-container{
+    /* background-image: url('../../../assets/bg.png'); */
+    background-image: url('../../assets/dark-background.jpg');
+    border: 2px solid rebeccapurple;
+    min-height: calc(100vh - 77px);
+}
+
 .profile-container{
     max-width: 20vw;
     margin: 50px auto;

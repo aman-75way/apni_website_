@@ -9,13 +9,13 @@ import multer from 'multer';
 import {v2 as Cloudinary} from 'cloudinary';
 import { GetHome, forgetPassword, userDetails, userLogin, userSignUp } from './controller/auth-controller.js';
 import { authMiddleware } from './middleware/auth-middleware.js';
-import { sendMail } from './controller/mail-controller.js';
 import { uploadHandler } from './controller/upload-controller.js';
 import { upload } from './Multer/multer.configuration.js';
 import { displayProduct , myProduct } from './controller/displayProduct-controller.js';
 import { validateLogin } from './middleware/login-middleware.js';
 import { validateSignUp } from './middleware/signup-middleware.js';
 import OTP from './Routes/Otp.js';
+import adminRouter from './Routes/admin-route.js';
 
 const app = express();
 app.use(bodyParser.json());
@@ -27,18 +27,17 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+
 const PORT = 4000;
+
 
 connectDB();
 
 
+app.use('/admin' , adminRouter);
+
+
 app.use('/otp' , OTP);
-
-
-app.get('/sendmail' , sendMail)
-
-
-app.get('/' , GetHome);
 
 
 app.get('/userDetails' , authMiddleware , userDetails)
@@ -60,7 +59,6 @@ app.post('/login' , validateLogin , userLogin);
 
 
 app.post('/forgetPassword' , forgetPassword);
-
 
 
 

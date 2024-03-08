@@ -43,7 +43,6 @@ const Navbar: React.FC = () => {
               <>
                       <li><Link to="/about">About</Link></li>
                       <li><Link to="/profile">Profile</Link></li>
-                      <li><Link to="/fileUpload">File_Upload</Link></li>
                       <li><Link to="/showProduct">Display_Products</Link></li>
                       <li><Link to="/myUpload">My Products</Link></li>
                       <li className='logout-list' onClick={logout}>Logout</li>
@@ -57,11 +56,10 @@ const Navbar: React.FC = () => {
 
           <div className="right-header">
                 <span className="toggle-btn" onClick={toggleDarkMode}>
-                  <FontAwesomeIcon className='toggle-icon' icon={darkMode ? faMoon : faSun} size="2x" />
+                  <FontAwesomeIcon className='toggle-icon' icon={darkMode ? faSun : faMoon } size="2x" />
                 </span>
           </div>
-
-            </ul>
+          </ul>
           </nav>
         </div>
         

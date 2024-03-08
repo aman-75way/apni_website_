@@ -26,11 +26,6 @@ export const FileUpload = ()=>{
       return;
     }
 
-    // const formData = new FormData();
-    // formData.append('images', selectedFile);
-    // formData.append('title' , title);
-    // formData.append('price' , price);
-
     try {
       // const response = await axios.post('http://localhost:4000/api/upload', formData, {
       const response = await axios.post('http://localhost:4000/api/upload', {
@@ -62,46 +57,49 @@ export const FileUpload = ()=>{
   };
 
   return (
-        <div className="outerImageContainer">
-          <div className="imageContainer">
-            <form onSubmit={handleUpload}>
-              <input
-                type="text"
-                name="title"
-                placeholder="Enter title"
-                value={title}
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
-              />
-              <input
-                type="text"
-                name="price"
-                placeholder="Enter Price"
-                value={price}
-                onChange={(e) => {
-                  setPrice(e.target.value);
-                }}
-              />
-              <input
-                type="file"
-                name="images"
-                onChange={handleFileChange}
-                ref={fileInputRef}
-              />
-              <button className="submit-btn" type="submit" onClick={handleUpload}>
-                Upload
-              </button>
-              <div className="extra-link">
-                All Products...?
-                <Link className="showProduct" to='/showProduct'> See Products </Link>
-                <br />
-                Your Products...?
-                <Link className="showProduct" to='/myUpload'> My Products </Link>
+
+    <div className="outer-outerImageContainer">
+            <div className="outerImageContainer">
+              <div className="imageContainer">
+                <form onSubmit={handleUpload}>
+                  <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter title"
+                    value={title}
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                    />
+                  <input
+                    type="text"
+                    name="price"
+                    placeholder="Enter Price"
+                    value={price}
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                    />
+                  <input
+                    type="file"
+                    name="images"
+                    onChange={handleFileChange}
+                    ref={fileInputRef}
+                    />
+                  <button className="submit-btn" type="submit" onClick={handleUpload}>
+                    Upload
+                  </button>
+                  <div className="extra-link">
+                    All Products...?
+                    <Link className="showProduct" to='/showProduct'> See Products </Link>
+                    <br />
+                    Your Products...?
+                    <Link className="showProduct" to='/myUpload'> My Products </Link>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-        </div>
+            </div>
+    </div>
   );
   
 };
