@@ -30,11 +30,16 @@
     height: auto;
   }
 
-  .delete-Product{
-    
-  }
-
+  
   .delete-Product:hover{
+    background-color: rgb(5, 122, 53);
+  }
+  
+  .Update-Product{
+    margin-left: 4vh;
+  }
+  
+  .Update-Product:hover{
     background-color: rgb(5, 122, 53);
   }
 

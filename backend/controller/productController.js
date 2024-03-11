@@ -10,4 +10,11 @@ const deleteProductById = async(req,res)=>{
      } 
 }
 
-export  {deleteProductById};
+
+const updateProductById = async(req,res)=>{
+    
+}
+
+
+
+export  {deleteProductById , updateProductById};
