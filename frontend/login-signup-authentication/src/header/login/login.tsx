@@ -84,31 +84,33 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login-container">
-      
-        <h2> Login </h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className='form-component'
-            placeholder="Enter Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            className='form-component'
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit" className='form-component'>Login</button>
-          <Link className='forget' to='/forgetPassword'> Forget Password ? </Link>
-          <div className="inner-container">
-            Do not have accounts ?
-            <Link to='/signup'> Signup </Link>
-          </div>
-        </form>
+    <div className="outer-login-container">
+      <div className="login-container">
+        
+          <h2> Login </h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className='form-component'
+              placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              />
+            <input
+              type="password"
+              className='form-component'
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit" className='form-component'>Login</button>
+            <Link className='forget' to='/forgetPassword'> Forget Password ? </Link>
+            <div className="inner-container">
+              Do not have accounts ?
+              <Link to='/signup'> Signup </Link>
+            </div>
+          </form>
+      </div>
     </div>
   );
 };

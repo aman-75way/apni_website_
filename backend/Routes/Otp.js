@@ -15,7 +15,7 @@ router.post('/send-otp', async (req, res) => {
 
   const existingUser = await User.findOne({email});
 
-  if(existingUser) res.send("User Exists Already");
+  if(existingUser) res.status(403).json({msg : "User exists already"});
   
   const otp = generateOTP();
   otpStore[email] = otp;

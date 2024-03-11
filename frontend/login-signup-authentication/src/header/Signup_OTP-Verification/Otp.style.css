@@ -1,8 +1,21 @@
+
+.outer-otp-container{
+  height: calc(100vh - 75px);
+  /* border: 2px solid rebeccapurple; */
+  background-image: url('../../assets/dark-background.jpg');
+}
+
+.otp-container{
+  border: 1px solid rgb(175, 222, 248);
+  min-height: 89.5vh;
+}
+
 .container {
     max-width: 25vw;
-    margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
+    margin-left: 37vw;
+    margin-top: 11vh;
     border-radius: 5px;
     text-align: center;
     background-color: var(--background-color);

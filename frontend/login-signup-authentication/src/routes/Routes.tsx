@@ -14,7 +14,7 @@ import { ShowProduct } from '../header/Products/showProduct/ShowProduct';
 import Protected from '../protectedRoutes/ProtectedRoutes';
 import { SuccessPage } from '../components/successPage/SuccessPage';
 import { MyUpload } from '../header/Products/MyUpload/MyUpload';
-import OTP from '../header/OTP-Verification/Otp';
+import OTP from '../header/Signup_OTP-Verification/Otp';
 
 
 const Routes_: React.FC = () => {

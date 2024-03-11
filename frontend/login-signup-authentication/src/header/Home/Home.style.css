@@ -1,11 +1,11 @@
 /* src/components/Home.css */
 .home-container {
     position: relative;
-    height: calc(100vh - 77px);
     overflow: hidden;
-    border: 2px solid rebeccapurple;
-    /* background-image: url('../../assets/bg.png'); */
+    height: calc(100vh - 73px);
+    /* border: 2px solid rebeccapurple; */
     background-image: url('../../assets/dark-background.jpg');
+    /* background-image: url('../../assets/bg.png'); */
   }
   
   .home-background {

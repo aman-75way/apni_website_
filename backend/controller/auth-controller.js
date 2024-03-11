@@ -38,9 +38,9 @@ import { sendMail } from './mail-controller.js';
     // });
 
     
-    const existingUser = await User.findOne({email});
-    if(existingUser) res.send("User exists already");
-    else{
+    // const existingUser = await User.findOne({email});
+    // if(existingUser) res.status(403).json({msg : "User exists already"});
+    // else{
             // const token = await userData.generateAuthToken();
             // console.log("The token part is : " , token);
 
@@ -75,8 +75,8 @@ import { sendMail } from './mail-controller.js';
                 console.log("Error : " , err);
                 res.status(500).send('Internal Server Error');
             });
-    }
     };
+    // };
  
  
 
