@@ -118,7 +118,7 @@ import Login from '../login/login';
 
 export const Forget_Password : React.FC = () => {
 
-    const [name , setName] = useState("");
+    const [email , setEmail] = useState("");
     const [password , setPassword] = useState("");
     const [confirmPassword , setConfirmPassword] = useState("");
     const [forget , setForget] = useState(false);
@@ -129,14 +129,14 @@ export const Forget_Password : React.FC = () => {
       if(password === confirmPassword){
         try {
           const response = await axios.post('http://localhost:4000/forgetPassword' , {
-            name,
+            email,
             password,
             confirmPassword
           })
           // console.log("Reponse at forgePassword : " , response);
           if(response.status === 200){
             alert('password changed successfully');
-            setName("");
+            setEmail("");
             setPassword("");
             setConfirmPassword("");
             setForget(true);
@@ -150,7 +150,7 @@ export const Forget_Password : React.FC = () => {
         }
       }else{
         alert('password and confirm Password are not matching');
-        setName("");
+        setEmail("");
         setPassword("");
         setConfirmPassword("");
       }
@@ -158,26 +158,29 @@ export const Forget_Password : React.FC = () => {
 
 
   return (
-    <>
-    {
-      forget 
-      ? 
-        <Login />
-      :
-        <div className='main-container'>
-            <h2> Forget Password </h2>
-            <form onSubmit={eventHandler}>
-                <input type='text' className='form-component' placeholder='Enter Name' value={name} onChange={(e)=>{setName(e.target.value)}} />
-                
-                <input type='password' className='form-component' placeholder='Enter New Password' value={password} onChange={(e)=>{setPassword(e.target.value)}} />
-                
-                <input type='text' className='form-component' placeholder='Re-Enter Password ' value={confirmPassword} onChange={(e)=>{setConfirmPassword(e.target.value)}} />
+    <div className="outer-forget-password-container">
+        <div className='forget-password-container'>
+        {
+          forget 
+          ? 
+            <Login />
+          :
+            <div className='main-container'>
+                <h2> Forget Password </h2>
+                <form onSubmit={eventHandler}>
+                    <input type='text' className='form-component' placeholder='Enter Email' value={email} onChange={(e)=>{setEmail(e.target.value)}} />
+                    
+                    <input type='password' className='form-component' placeholder='Enter New Password' value={password} onChange={(e)=>{setPassword(e.target.value)}} />
+                    
+                    <input type='text' className='form-component' placeholder='Re-Enter Password ' value={confirmPassword} onChange={(e)=>{setConfirmPassword(e.target.value)}} />
 
-                <button type='submit'> Change Password </button>
-            </form>
+                    <button type='submit'> Change Password </button>
+                </form>
 
+            </div>
+        }
         </div>
-    }
-    </>
+    </div>
+
   )
 }

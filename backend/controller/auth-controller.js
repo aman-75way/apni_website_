@@ -105,9 +105,9 @@ import { sendMail } from './mail-controller.js';
 
    const forgetPassword = async function(req,res){
         // console.log("Request body : " , req.body);
-        const {name , password , confirmPassword} = req.body;
+        const {email , password , confirmPassword} = req.body;
 
-        const existingUser = await User.findOne({name});
+        const existingUser = await User.findOne({email});
         
         // console.log("Data from backend : " , existingUser);
         if(existingUser){

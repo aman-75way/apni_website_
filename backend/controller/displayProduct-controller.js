@@ -16,4 +16,6 @@ import { Product } from "../models/productSchema.js"
       res.status(200).json(await Product.find({user : userId}));
 }
 
-export {displayProduct , myProduct}
+
+
+export {displayProduct , myProduct }
