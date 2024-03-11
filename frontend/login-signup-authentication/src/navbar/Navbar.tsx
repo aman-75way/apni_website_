@@ -3,6 +3,11 @@ import React, {  useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { FaHome } from "react-icons/fa";
+import { CiLogin } from "react-icons/ci";
+import { CgProfile } from "react-icons/cg";
+import { IoLogOutOutline } from "react-icons/io5";
+import { FcAbout } from "react-icons/fc";
 import './Navbar.style.css';
 
 const Navbar: React.FC = () => {
@@ -36,21 +41,21 @@ const Navbar: React.FC = () => {
         <div className="left-header">
           <nav className={`navbar ${darkMode ? 'dark-mode' : ''}`}>
             <ul>
-              <li><Link to="/">Home</Link></li>
+              <li><Link to="/"> <FaHome size={25}/> Home </Link></li>
 
               {authToken
               ? 
               <>
-                      <li><Link to="/about">About</Link></li>
-                      <li><Link to="/profile">Profile</Link></li>
+                      <li><Link to="/about"> About</Link></li>
+                      <li><Link to="/profile"> <CgProfile /> Profile</Link></li>
                       <li><Link to="/showProduct">Display_Products</Link></li>
                       <li><Link to="/myUpload">My Products</Link></li>
-                      <li className='logout-list' onClick={logout}>Logout</li>
+                      <li className='logout-list' onClick={logout}> Logout <IoLogOutOutline /></li>
                   </>
               :
                   <>
                       <li><Link to="/signup">Register</Link></li>
-                      <li><Link to="/login">Login</Link></li>
+                      <li><Link to="/login"> <CiLogin /> Login</Link></li>
                   </>
               }
 

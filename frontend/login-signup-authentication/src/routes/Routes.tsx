@@ -32,7 +32,7 @@ const Routes_: React.FC = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/fileUpload" element={<FileUpload />} />
         <Route path="/profile" element={<Profile />} /> */}
-        <Route path="/logout" element={<Logout />} />
+          <Route path="/logout" element={<Logout />} />
           
           <Route path='/success' element={<Protected name="success" children={<SuccessPage />} />} />
           <Route path='/showProduct' element={<Protected name="showProduct" children={<ShowProduct />} />} />

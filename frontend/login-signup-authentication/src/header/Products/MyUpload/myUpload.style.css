@@ -30,6 +30,14 @@
     height: auto;
   }
 
+  .delete-Product{
+    
+  }
+
+  .delete-Product:hover{
+    background-color: rgb(5, 122, 53);
+  }
+
   .message{
     border: 2px solid black;
     margin: 30vh 30vw;

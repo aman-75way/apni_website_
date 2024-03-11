@@ -30,7 +30,9 @@ export const RegisterDetails = ({email} : any) => {
                   const token = data.token;
                   // console.log("Signup token is : " , token);
                   // we maintain below one line with the help of store in future......
-                  localStorage.setItem("token" , token);
+                 
+                  // localStorage.setItem("token" , token);
+                 
                   // storeTokenInLocalStorage(token);
 
                   setName("");

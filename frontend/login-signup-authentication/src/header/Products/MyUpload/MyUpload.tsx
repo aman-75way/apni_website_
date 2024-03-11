@@ -4,6 +4,7 @@ import './myUpload.style.css'
 import { UserContext } from "../../../store/auth";
 import { Link } from "react-router-dom";
 import { FaCloudUploadAlt } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 interface Product {
     _id: string;
@@ -15,18 +16,38 @@ interface Product {
 export const MyUpload = ()=>{
     const {userData} = useContext(UserContext);
     const [data , setData] = useState<Product[]>([]);
+    
+    const deleteProduct = async(id : any)=>{
+    try {       
+        // const response = await  axios.delete(`http://localhost:4000/product/delete/${id}`);
+
+        const response = await axios.delete(`http://localhost:4000/product/delete/${id}`);
+        if(response.status === 200){
+            alert('Product Deleted Successfully');
+            getAllProducts();
+        }        
+    } catch (error) {
+        console.log("Error is : " , error);
+    }
+}
+
+
+const getAllProducts = ()=>{
+    axios.get('http://localhost:4000/api/myProduct' , {
+     headers : {
+        Authorization : `Bearer ${localStorage.getItem("token")}`,
+      },
+     })
+    .then((response)=>{
+        setData(response.data);
+    }).catch((error)=>{
+        console.log("Error :" , error);
+    });
+}
+
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/api/myProduct' , {
-            headers : {
-                Authorization : `Bearer ${localStorage.getItem("token")}`,
-            },
-          })
-        .then((response)=>{
-            setData(response.data);
-        }).catch((error)=>{
-            console.log("Error :" , error);
-        });
+        getAllProducts();
     } , []);
 
     return(
@@ -50,7 +71,8 @@ export const MyUpload = ()=>{
                                     <div key={product._id} className="product-card">
                                     <img src={product.imageLink} alt={product.title} />
                                     <h3>{product.title}</h3>
-                                    <p>{product.price}</p>
+                                    <p>{product.price} </p>
+                                    <button className="delete-Product" onClick={() => deleteProduct(product._id)} > <MdDelete size={18} /> </button>
                                     </div>
                                 );
                             })}
