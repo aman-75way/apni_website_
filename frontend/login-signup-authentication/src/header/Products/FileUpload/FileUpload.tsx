@@ -10,6 +10,7 @@ export const FileUpload = ()=>{
   const [price , setPrice] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [uploaded , setUploaded] = useState(false);
+  const [loading ,setLoading] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -21,8 +22,10 @@ export const FileUpload = ()=>{
 
   const handleUpload = async (event : React.FormEvent) => {
     event.preventDefault();
+    setLoading(true);
     if (!selectedFile) {
       console.error('No file selected');
+      setLoading(false);
       return;
     }
 
@@ -38,24 +41,25 @@ export const FileUpload = ()=>{
           Authorization : `Bearer ${localStorage.getItem("token")}`,
         },
       });
-
-      alert("File Uploaded Successfully");
+      setLoading(false);
+      // alert("File Uploaded Successfully");
       setTitle("");
       setPrice("");
       setSelectedFile(null);
-
+      
       if (fileInputRef.current) {
         fileInputRef.current.value = '';
       }
-
+      
       // console.log('Upload successful', response);
       setUploaded(true);
-
+      
     } catch (error) {
-      console.error('Upload failed', error);
+       setLoading(false);
+       console.error('Upload failed', error);
     }
   };
-
+  
   return (
 
     <div className="outer-outerImageContainer">
@@ -87,7 +91,9 @@ export const FileUpload = ()=>{
                     ref={fileInputRef}
                     />
                   <button className="submit-btn" type="submit" onClick={handleUpload}>
-                    Upload
+                      {loading ? <div className='loader'></div> : <>
+                          Upload
+                      </>}
                   </button>
                   <div className="extra-link">
                     All Products...?

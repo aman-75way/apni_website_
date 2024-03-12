@@ -9,6 +9,7 @@ export const EditProfile = ()=>{
     const [name , setName] = useState("");
     const [mobile , setMobile] = useState("");
     const [serverToken , setServerToken] = useState("");
+    const [loading , setLoading] = useState(false);
     const [userData , setUserData] = useState({
         userName : "",
         userNumber : ""
@@ -16,6 +17,7 @@ export const EditProfile = ()=>{
     const navigate = useNavigate();
 
     const handleSubmit = async(event : React.FormEvent)=>{ 
+        setLoading(true);
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:4000/updateUserDetails' , 
@@ -27,12 +29,13 @@ export const EditProfile = ()=>{
                         Authorization : `Bearer ${serverToken}`
                     }
             })
-    
+            setLoading(false);
             if(response.status == 200){
-                alert("Data Modified Successfully");
+                // alert("Data Modified Successfully"); 
                 navigate('/profile')    
             }
         } catch (error : any) {
+            setLoading(false);
             const fieldPath = error.response.data.errors[0].path;
             const errorMsg = error.response.data.errors[0].msg
             console.log(fieldPath , " :: " , errorMsg );
@@ -93,7 +96,11 @@ export const EditProfile = ()=>{
                         value={mobile}
                         onChange={(e) => setMobile(e.target.value)}
                         />
-                        <button type="submit" className='form-component'>Update</button>
+                        <button type="submit" className='form-component'>
+                        {loading ? <div className='loader'></div> : <>
+                            Update
+                        </>}
+                        </button>
                     </form>
             </div>
         </div>

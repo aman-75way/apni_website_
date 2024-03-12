@@ -24,7 +24,7 @@ const deleteProduct = async(id : any)=>{
 
         const response = await axios.delete(`http://localhost:4000/product/delete/${id}`);
         if(response.status === 200){
-            alert('Product Deleted Successfully');
+            // alert('Product Deleted Successfully');
             getAllProducts();
         }        
     } catch (error) {

@@ -11,11 +11,13 @@ export const RegisterDetails = ({email} : any) => {
   const [password , setPassword ] = useState('');
   const [confirmPassword , setConfirmPassword] = useState("");
   const [register , setRegister] = useState(false);
+  const [loading , setLoading] = useState(false);
 
   // const storeTokenInLocalStorage = useAuth();
   
   const handleSubmit = async(event : React.FormEvent)=>{
       event.preventDefault();
+      setLoading(true);
 
       try {
 
@@ -47,10 +49,12 @@ export const RegisterDetails = ({email} : any) => {
               }
 
         }else{
+          setLoading(false);
           alert("Password is not matching");
         }
       } 
       catch (error : any) {
+        setLoading(false);
         const fieldPath = error.response.data.errors[0].path;
         const errorMsg = error.response.data.errors[0].msg
         console.log(fieldPath , " :: " , errorMsg );
@@ -88,7 +92,14 @@ export const RegisterDetails = ({email} : any) => {
 
           <input type='password' className='formComponent' placeholder='Enter Password Again' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
 
-          <button type='submit' className='formComponent' > Register </button>
+          <button type='submit' className='formComponent' > 
+          {loading ? <div className='loader'></div> 
+            : 
+            <>
+              Register
+            </>
+          }
+          </button>
       </form>  
     </div>
     }

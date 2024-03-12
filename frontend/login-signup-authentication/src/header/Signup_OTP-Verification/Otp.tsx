@@ -11,24 +11,32 @@ const OTP: React.FC = () => {
   const [otp, setOtp] = useState<string>('');
   const [message, setMessage] = useState<string>('');
   const [isVerify , setIsVerify] = useState<Boolean>(false);
-
+  const [loading1 , setLoading1] = useState(false);
+  const [loading2 , setLoading2] = useState(false);
   
-  const sendOTP = async () => {
+  const sendOTP = async (event : React.FormEvent) => {
+    event.preventDefault;
+    setLoading1(true);
     try {
       const response = await axios.post('http://localhost:4000/otp/send-otp', { email });
+      setLoading1(false);
       setMessage(response.data.message);
     } catch (error) {
+      setLoading1(false);
       setMessage('Failed to send OTP');
     }
   };
 
 
   const verifyOTP = async () => {
+    setLoading2(true);
     try {
       const response = await axios.post('http://localhost:4000/otp/verify-otp', { email, otp });
+      setLoading2(false);
       setMessage(response.data.message);
       setIsVerify(true);
     } catch (error) {
+      setLoading2(false);
       setMessage('Invalid OTP');
     }
   };
@@ -47,7 +55,11 @@ const OTP: React.FC = () => {
                   Enter Your Email:
                   <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
-                <button onClick={sendOTP}>Send OTP</button>
+                <button onClick={sendOTP}>
+                    {loading1 ? <div className='loader'></div> : <>
+                        Send OTP
+                    </>}
+                </button>
                 <br />
                 <br />
                 <label>
@@ -55,7 +67,11 @@ const OTP: React.FC = () => {
                   <input type="text" value={otp} onChange={(e) => setOtp(e.target.value)} />
                 </label>
                 <br />
-                <button onClick={verifyOTP}>Verify OTP</button>
+                <button onClick={verifyOTP}>
+                    {loading2 ? <div className='loader1'></div> : <>
+                      Verify OTP
+                    </>}
+                </button>
                 <br />
                 <div className="inner-container">
                   Already Have an Account ? 

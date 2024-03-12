@@ -13,9 +13,13 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   const [password, setPassword] = useState('');
+  const [loading , setLoading] = useState(false);
+
+
   // const { storeTokenInLocalStorage , userAuthentication } = useContext(UserContext);
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true);
 
     try {
       const response = await axios.post('http://localhost:4000/login', {
@@ -41,12 +45,13 @@ const Login: React.FC = () => {
         navigate('/profile');
         
         //  console.log(response);
-
+         setLoading(false);
          setIsLogin(true);
         //  alert("Login Successful");
       }
       else{
-        console.log("error",response)
+        console.log("error",response);
+        setLoading(false);
         // alert(`${response.message}`)
       }
     } 
@@ -54,7 +59,7 @@ const Login: React.FC = () => {
     catch (error: any) {
       if (error.response && error.response.data) {
         const responseData = error.response.data;
-    
+        setLoading(false);
         if (responseData.message) {
           // Handle error with message
           console.error('Error with message:', responseData.message);
@@ -86,7 +91,7 @@ const Login: React.FC = () => {
   return (
     <div className="outer-login-container">
       <div className="login-container">
-        
+          
           <h2> Login </h2>
           <form onSubmit={handleSubmit}>
             <input
@@ -103,7 +108,11 @@ const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit" className='form-component'>Login</button>
+            <button type="submit" className='form-component'>
+              {loading ? <div className='loader'></div> : <>
+              Login
+              </>}
+            </button>
             <Link className='forget' to='/forgetPassword'> Forget Password ? </Link>
             <div className="inner-container">
               Do not have accounts ?
@@ -116,3 +125,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
+
