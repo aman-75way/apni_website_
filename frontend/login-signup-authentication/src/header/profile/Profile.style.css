@@ -14,6 +14,7 @@
     border: 2px solid blue;
     border-radius: 8px;
     background-color: var(--background-color);
+    border-radius: 20px;
 }
 .profile-component{
     margin-top: 20px;
@@ -21,4 +22,13 @@
 
 .profile-items{
     margin-top: 30px;
+}
+
+.profile-icon{
+    margin-left: 18vw;
+    background-color: var(--background-color);
+}
+
+.profile-icon:hover{
+    background-color: rgb(13, 126, 233)
 }

@@ -16,7 +16,7 @@ import { upload } from './Multer/multer.configuration.js';
 
 
 // Controller...........
-import { GetHome, forgetPassword, userDetails, userLogin, userSignUp } from './controller/auth-controller.js';
+import { GetHome, forgetPassword, updateUserDetails, userDetails, userLogin, userSignUp } from './controller/auth-controller.js';
 import { uploadHandler } from './controller/upload-controller.js';
 import { displayProduct , myProduct } from './controller/displayProduct-controller.js';
 
@@ -32,6 +32,7 @@ import { validateForgetPassword } from './middleware/forget-password-middleware.
 import OTP from './Routes/Otp.js';
 import adminRouter from './Routes/admin-route.js';
 import productOperations from './Routes/product-route.js';
+import { validateEditProfile } from './middleware/edit-profile-middleware.js';
 
 
 const app = express();
@@ -47,38 +48,56 @@ app.use(cors(corsOptions));
 connectDB();
 const PORT = 4000;
 
+
+
 app.get('/' , (req,res)=>{
     res.send("Hello");
 })
 
 
+// --------------------------
+//     Routes Section  💀
+// --------------------------
+
+
 app.use('/admin' , adminRouter);
-
 app.use('/otp' , OTP);
-
 app.use('/product' , productOperations);
 
 
+// --------------------------
+//     User Details  💀
+// --------------------------
+
+
 app.get('/userDetails' , authMiddleware , userDetails)
+app.post('/updateUserDetails' , validateEditProfile , authMiddleware , updateUserDetails)
+
+
+// --------------------------
+//     Upload Photo  💀
+// --------------------------
 
 
 app.post('/api/upload'  , upload.single("images") , authMiddleware ,  uploadHandler)
-
-
 app.get('/api/displayProduct' , displayProduct);
-
-
 app.get('/api/myProduct' , authMiddleware ,  myProduct);
 
 
+// ----------------------------
+//     User Authentication  💀
+// ----------------------------
+
+
 app.post('/signup' , validateSignUp , userSignUp);
-
-
 app.post('/login' , validateLogin , userLogin);
-
-
 app.post('/forgetPassword' , validateForgetPassword ,  forgetPassword);
 
+
+
+// ---------------------
+//     Run Server  💀
+// ---------------------
 
 
 app.listen(PORT , (req,res)=>{

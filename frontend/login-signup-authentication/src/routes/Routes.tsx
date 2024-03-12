@@ -15,6 +15,7 @@ import Protected from '../protectedRoutes/ProtectedRoutes';
 import { SuccessPage } from '../components/successPage/SuccessPage';
 import { MyUpload } from '../header/Products/MyUpload/MyUpload';
 import OTP from '../header/Signup_OTP-Verification/Otp';
+import { EditProfile } from '../header/profile/edit-profile/EditProfile';
 
 
 const Routes_: React.FC = () => {
@@ -40,6 +41,7 @@ const Routes_: React.FC = () => {
           <Route path='/myUpload' element={<Protected name="myUpload" children={<MyUpload />} />} />
           {/* <Route path='/logout' element={<Protected name="logout" children={<Logout />} />} /> */}
           <Route path='/profile' element={<Protected name="profile" children={<Profile />} />} />
+          <Route path='/edit-profile' element={<Protected name="edit-profile" children={<EditProfile />} />} />
 
           <Route path="/forgetPassword" element={<Forget_Password />} />
 
