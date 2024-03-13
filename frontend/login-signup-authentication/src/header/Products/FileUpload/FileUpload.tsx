@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import axios from "axios";
 import './fileUpload.style.css';
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 export const FileUpload = ()=>{
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -11,6 +11,7 @@ export const FileUpload = ()=>{
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [uploaded , setUploaded] = useState(false);
   const [loading ,setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -46,6 +47,7 @@ export const FileUpload = ()=>{
       setTitle("");
       setPrice("");
       setSelectedFile(null);
+      navigate('/myUpload');
       
       if (fileInputRef.current) {
         fileInputRef.current.value = '';

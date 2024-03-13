@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './Otp.style.css'; // Import the stylesheet
 import { RegisterDetails } from '../Registration/registerDetails';
+import 'dotenv/config';
 import Login from '../login/login';
 
 const OTP: React.FC = () => {
@@ -18,7 +19,8 @@ const OTP: React.FC = () => {
     event.preventDefault;
     setLoading1(true);
     try {
-      const response = await axios.post('http://localhost:4000/otp/send-otp', { email });
+      // const response = await axios.post(`${process.env.BACKEND_SERVER}/otp/send-otp`, { email });
+      const response = await axios.post(`http://localhost:8104/otp/send-otp`, { email });
       setLoading1(false);
       setMessage(response.data.message);
     } catch (error) {

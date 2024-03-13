@@ -69,7 +69,7 @@ const getAllProducts = ()=>{
                             // console.log("Image link is : " , product.imageLink); // Log the image_link
                                 return (
                                     <div key={product._id} className="product-card">
-                                    <img src={product.imageLink} alt={product.title} />
+                                    <img src={product.imageLink} alt={product.title} style={{ width: '20vw', height: '25vh' }}/>
                                     <h3>{product.title}</h3>
                                     <p>{product.price} </p>
                                     <button className="delete-Product" onClick={() => deleteProduct(product._id)} > <MdDelete size={18} /> </button>

@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import Jwt from 'jsonwebtoken';
 import cors from 'cors';
 import bcrypt from 'bcryptjs';
+import 'dotenv/config'
 
 // Database.........
 import { connectDB } from './db.js';
@@ -35,6 +36,12 @@ import productOperations from './Routes/product-route.js';
 import { validateEditProfile } from './middleware/edit-profile-middleware.js';
 
 
+
+
+//  Our server is live on - https://apni-website.onrender.com/
+
+
+const PORT = 4000 | process.env.PORT
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,7 +53,6 @@ app.use(cors(corsOptions));
 
 
 connectDB();
-const PORT = 4000;
 
 
 
