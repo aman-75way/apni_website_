@@ -4,7 +4,6 @@ import './Profile.style.css'
 import { useContext, useEffect, useState } from 'react'
 import { FaUserEdit } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-
 import axios from 'axios';
 
 export const Profile = () => {
@@ -22,7 +21,7 @@ export const Profile = () => {
   const userAuthentication = async ( serverToken : string)=> {
     try {
       // console.log("Jo user ka token hai n  " ,  serverToken);
-      const response = await axios.get('http://localhost:4000/userDetails' , {
+      const response = await axios.get(`https://apni-website.onrender.com/userDetails` , {
         headers : {
           Authorization : `Bearer ${serverToken}`,
         },

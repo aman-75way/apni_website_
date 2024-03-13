@@ -5,7 +5,6 @@ import { UserContext } from "../../../store/auth";
 import { Link } from "react-router-dom";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { GrUpdate } from "react-icons/gr";
 
 interface Product {
     _id: string;
@@ -20,9 +19,7 @@ export const MyUpload = ()=>{
     
 const deleteProduct = async(id : any)=>{
     try {       
-        // const response = await  axios.delete(`http://localhost:4000/product/delete/${id}`);
-
-        const response = await axios.delete(`http://localhost:4000/product/delete/${id}`);
+        const response = await axios.delete(`https://apni-website.onrender.com/product/delete/${id}`);
         if(response.status === 200){
             // alert('Product Deleted Successfully');
             getAllProducts();
@@ -33,7 +30,7 @@ const deleteProduct = async(id : any)=>{
 }
 
 const getAllProducts = ()=>{
-    axios.get('http://localhost:4000/api/myProduct' , {
+    axios.get(`https://apni-website.onrender.com/api/myProduct` , {
      headers : {
         Authorization : `Bearer ${localStorage.getItem("token")}`,
       },

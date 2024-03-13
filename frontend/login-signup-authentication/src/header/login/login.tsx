@@ -5,8 +5,6 @@ import { SuccessPage } from '../../components/successPage/SuccessPage';
 import './login.style.css'; // Import the CSS file for styling
 import { UserContext } from '../../store/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import { errors } from 'jose';
-
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
@@ -22,7 +20,8 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:4000/login', {
+      // const response = await axios.post(`${process.env.BACKEND_SERVER}/login`, {
+      const response = await axios.post("https://apni-website.onrender.com/login", {
         email,
         password
       });

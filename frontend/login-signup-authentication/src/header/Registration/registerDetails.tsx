@@ -22,7 +22,7 @@ export const RegisterDetails = ({email} : any) => {
       try {
 
         if(password === confirmPassword){
-              const response = await axios.post("http://localhost:4000/signup" , {
+              const response = await axios.post(`https://apni-website.onrender.com/signup` , {
                 name,mobile,email,gender,password,confirmPassword
               });
 

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './EditProfile.style.css';
 import axios from 'axios';
 
-
 export const EditProfile = ()=>{
 
     const [name , setName] = useState("");
@@ -20,7 +19,7 @@ export const EditProfile = ()=>{
         setLoading(true);
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4000/updateUserDetails' , 
+            const response = await axios.post(`https://apni-website.onrender.com/updateUserDetails` , 
                 {
                     name : name,
                     mobile : mobile
@@ -47,7 +46,7 @@ export const EditProfile = ()=>{
     const userAuthentication = async ( serverToken : string)=> {
         try {
         
-            const response = await axios.get('http://localhost:4000/userDetails' , {
+            const response = await axios.get('https://apni-website.onrender.com/userDetails' , {
                 headers : {
                 Authorization : `Bearer ${serverToken}`,
                 },

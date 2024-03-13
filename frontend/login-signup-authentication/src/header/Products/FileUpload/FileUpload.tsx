@@ -31,8 +31,7 @@ export const FileUpload = ()=>{
     }
 
     try {
-      // const response = await axios.post('http://localhost:4000/api/upload', formData, {
-      const response = await axios.post('http://localhost:4000/api/upload', {
+      const response = await axios.post(`http://localhost:8104/api/upload`, {
         images : selectedFile,
         title : title,
         price : price

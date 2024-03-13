@@ -26,6 +26,7 @@ const Routes_: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<p>Path not resolved</p>} />
           <Route path="/signup" element={<OTP />} />
           <Route path="/register" element={<RegisterDetails />} />
 
@@ -39,7 +40,6 @@ const Routes_: React.FC = () => {
           <Route path='/showProduct' element={<Protected name="showProduct" children={<ShowProduct />} />} />
           <Route path='/fileUpload' element={<Protected name="fileUpload" children={<FileUpload />} />} />
           <Route path='/myUpload' element={<Protected name="myUpload" children={<MyUpload />} />} />
-          {/* <Route path='/logout' element={<Protected name="logout" children={<Logout />} />} /> */}
           <Route path='/profile' element={<Protected name="profile" children={<Profile />} />} />
           <Route path='/edit-profile' element={<Protected name="edit-profile" children={<EditProfile />} />} />
 

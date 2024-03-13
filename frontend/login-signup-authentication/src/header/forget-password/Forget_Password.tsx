@@ -128,7 +128,7 @@ export const Forget_Password : React.FC = () => {
 
       if(password === confirmPassword){
         try {
-          const response = await axios.post('http://localhost:4000/forgetPassword' , {
+          const response = await axios.post(`https://apni-website.onrender.com/forgetPassword` , {
             email,
             password,
             confirmPassword

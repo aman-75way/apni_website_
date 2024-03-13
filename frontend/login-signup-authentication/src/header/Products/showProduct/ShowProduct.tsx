@@ -15,7 +15,7 @@ export const ShowProduct = () => {
     const [data ,setData] = useState<Product[]>([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/api/displayProduct').then((response)=>{
+        axios.get(`https://apni-website.onrender.com/api/displayProduct`).then((response)=>{
             // console.log(response.data);
             setData(response.data);
         }).catch((err)=>{

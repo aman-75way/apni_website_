@@ -4,8 +4,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './Otp.style.css'; // Import the stylesheet
 import { RegisterDetails } from '../Registration/registerDetails';
-import 'dotenv/config';
 import Login from '../login/login';
+
 
 const OTP: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -19,8 +19,7 @@ const OTP: React.FC = () => {
     event.preventDefault;
     setLoading1(true);
     try {
-      // const response = await axios.post(`${process.env.BACKEND_SERVER}/otp/send-otp`, { email });
-      const response = await axios.post(`http://localhost:8104/otp/send-otp`, { email });
+      const response = await axios.post(`https://apni-website.onrender.com/otp/send-otp`, { email });
       setLoading1(false);
       setMessage(response.data.message);
     } catch (error) {
@@ -33,7 +32,7 @@ const OTP: React.FC = () => {
   const verifyOTP = async () => {
     setLoading2(true);
     try {
-      const response = await axios.post('http://localhost:4000/otp/verify-otp', { email, otp });
+      const response = await axios.post('https://apni-website.onrender.com/otp/verify-otp', { email, otp });
       setLoading2(false);
       setMessage(response.data.message);
       setIsVerify(true);

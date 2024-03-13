@@ -42,6 +42,7 @@ const Navbar: React.FC = () => {
           <nav className={`navbar ${darkMode ? 'dark-mode' : ''}`}>
             <ul>
               <li><Link to="/"> <FaHome size={25}/> Home </Link></li>
+              <li><Link to="/admin"> Admin </Link></li>
 
               {authToken
               ? 
