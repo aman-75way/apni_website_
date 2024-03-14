@@ -2,7 +2,7 @@
 
 .navbar {
     background-color: var(--header-color);
-    height: 70px;
+    height: 7rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,7 @@
     margin: 0;
     background-color: rgb(55, 149, 237);
     justify-content: space-between; /* Align items to the start and end of the navbar */
-    padding: 0 30px; /* Add padding to the navbar */
+    padding: 0 3rem; /* Add padding to the navbar */
   }
   
   .navbar ul {
@@ -19,20 +19,28 @@
     display: flex;
     margin: 0;
     padding: 0;
-    margin-left: 30px;
-    font-size: 17px; 
+    margin-left: 3rem;
+    font-size: 1.7rem; 
     color: white;
     align-items: center; /* Center items vertically in the navbar */
   }
   
   .navbar li {
-    margin-right: 20px;
+    margin-right: 2rem;
+  }
+
+  .logout-list{
+    font-size: 1.8rem;
+  }
+
+  .icon-container{
+    font-size: 3.5rem;
   }
 
   .navbar a {
     /* color: white;  */
     text-decoration: none;
-    font-size: 17px; 
+    font-size: 1.7rem; 
     color: white;
 
   }
@@ -53,10 +61,13 @@
   }
 
   .right-header{
-    margin-left: 40vw;
+    margin-left: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+
+  
 
 

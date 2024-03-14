@@ -76,7 +76,7 @@ const OTP: React.FC = () => {
                 <br />
                 <div className="inner-container">
                   Already Have an Account ? 
-                  <Link to='/login'>Login</Link>
+                  <Link className='login-link' to='/login'>Login</Link>
                 </div>
                 <p className={message.startsWith('Failed') || message.startsWith('Invalid') ? 'error' : 'success'}>
                   {message}

@@ -41,21 +41,38 @@ const Navbar: React.FC = () => {
         <div className="left-header">
           <nav className={`navbar ${darkMode ? 'dark-mode' : ''}`}>
             <ul>
-              <li><Link to="/"> <FaHome size={25}/> Home </Link></li>
+              <li><Link to="/"> 
+                    <span className="icon-container">
+                        <FaHome />
+                    </span>
+                  </Link>
+              </li>
 
               {authToken
               ? 
               <>
+                      <li>
+                          <Link to="/profile"> 
+                            <span className='icon-container'>
+                              <CgProfile />
+                            </span>
+                          </Link>
+                      </li>
                       <li><Link to="/about"> About</Link></li>
-                      <li><Link to="/profile"> <CgProfile /> Profile</Link></li>
                       <li><Link to="/showProduct">Display_Products</Link></li>
                       <li><Link to="/myUpload">My Products</Link></li>
                       <li className='logout-list' onClick={logout}> Logout <IoLogOutOutline /></li>
                   </>
               :
                   <>
-                      <li><Link to="/signup">Register</Link></li>
-                      <li><Link to="/login"> <CiLogin /> Login</Link></li>
+                      <li><Link to="/signup">Register
+                        </Link></li>
+                        <li><Link to="/login"> 
+                        <span className="icon-container">
+                              <CiLogin />
+                        </span>
+                        Login</Link>
+                      </li>
                   </>
               }
 

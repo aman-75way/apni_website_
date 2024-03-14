@@ -60,12 +60,12 @@ export const Profile = () => {
   return (
     <div className="outer-profile-container">
         <div className='profile-container'>
-            <button className='profile-icon' onClick={editProfile} ><FaUserEdit size={25} /></button>
-            <h2> Profile </h2>
-            <h3 className='profile-component'> User Name  - {userData.userName} </h3>
-            <h3 className='profile-component'> User Number  - {userData.userNumber} </h3>
-            <h3 className='profile-component'> User Email  - {userData.userEmail} </h3>
-            <h3 className='profile-component'> User Gender  - {userData.userGender} </h3>
+            <span className='profile-icon' onClick={editProfile} ><FaUserEdit  /></span>
+            <h2 className='profile-txt'> Profile </h2>
+            <h3 className='profile-component'> User Name  - {userData.userName}  </h3>
+            <h3 className='profile-component'> User Number  - {userData.userNumber}  </h3>
+            <h3 className='profile-component'> User Email  - {userData.userEmail}  </h3>
+            <h3 className='profile-component'> User Gender  - {userData.userGender}  </h3>
         </div>
     </div>
   )

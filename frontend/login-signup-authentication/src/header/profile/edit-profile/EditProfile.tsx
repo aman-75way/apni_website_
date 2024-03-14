@@ -46,7 +46,7 @@ export const EditProfile = ()=>{
     const userAuthentication = async ( serverToken : string)=> {
         try {
         
-            const response = await axios.get('https://apni-website.onrender.com/userDetails' , {
+            const response = await axios.get('http://localhost:4000/userDetails' , {
                 headers : {
                 Authorization : `Bearer ${serverToken}`,
                 },

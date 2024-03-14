@@ -1,34 +1,52 @@
-.outer-profile-container{
-    /* background-image: url('../../../assets/bg.png'); */
+.outer-profile-container {
     background-image: url('../../assets/dark-background.jpg');
-    border: 2px solid rebeccapurple;
-    min-height: calc(100vh - 77px);
-}
-
-.profile-container{
-    max-width: 20vw;
-    margin: 50px auto;
-    padding: 50px;
-    /* height: 400px; */
-    /* background-color: aqua; */
-    border: 2px solid blue;
-    border-radius: 8px;
+    border: 0.2rem solid rebeccapurple;
+    min-height: calc(100vh - 7.7rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-container {
+    max-width: 30rem;
+    margin: 5rem auto;
+    padding: 5rem;
+    font-size: 2.5rem;
+    border: 0.2rem solid blue;
+    border-radius: 0.8rem;
     background-color: var(--background-color);
-    border-radius: 20px;
-}
-.profile-component{
-    margin-top: 20px;
-}
+    border-radius: 2rem;
+    position: relative; /* Add relative positioning */
+  }
+  
+  .profile-component {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    white-space: pre-wrap; /* Allow line breaks before wrapping */
+    word-break: break-word; /* Break words that exceed container width */
+  }
 
-.profile-items{
-    margin-top: 30px;
-}
+  .profile-txt{
+    font-size: 2rem;
+    position: sticky;
+    margin-left: 0;
+  }
 
-.profile-icon{
-    margin-left: 18vw;
+  
+  .profile-items {
+    margin-top: 3rem;
+  }
+  
+  span.profile-icon {
+    position: absolute; /* Change to absolute positioning */
+    top: 1rem; /* Adjust top position as needed */
+    right: 1rem; /* Adjust right position as needed */
     background-color: var(--background-color);
-}
-
-.profile-icon:hover{
-    background-color: rgb(13, 126, 233)
-}
+    /* background-color: red; */
+    font-size: 3.5rem;
+  }
+  
+  .profile-icon:hover {
+    cursor: pointer;
+  }
+  

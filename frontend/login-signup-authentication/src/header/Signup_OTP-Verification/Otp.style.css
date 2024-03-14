@@ -1,46 +1,57 @@
 
 .outer-otp-container{
-  height: calc(100vh - 75px);
-  /* border: 2px solid rebeccapurple; */
+  height: calc(100vh - 7.5rem);
+  /* border: 0.2rem solid rebeccapurple; */
   background-image: url('../../assets/dark-background.jpg');
 }
 
 .otp-container{
-  border: 1px solid rgb(175, 222, 248);
+  border: 0.1rem solid rgb(175, 222, 248);
   min-height: 89.5vh;
 }
 
+h1{
+  font-size: 2rem;
+}
+
+label{
+  font-size: 1.5rem;
+}
+
+
+
 .container {
     max-width: 25vw;
-    padding: 20px;
-    border: 1px solid #ccc;
+    padding: 2rem;
+    border: 0.1rem solid #ccc;
     margin-left: 37vw;
     margin-top: 11vh;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     text-align: center;
+    min-width: 22vw;
     background-color: var(--background-color);
-    border-radius: 50px;
-    border: 2px solid blue;
+    border-radius: 5rem;
+    border: 0.2rem solid blue;
   }
   
   label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
   
   input {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
   }
   
   button {
     background-color: #4caf50;
     color: white;
-    padding: 10px 15px;
+    padding: 1rem 1.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     cursor: pointer;
   }
   
@@ -49,7 +60,7 @@
   }
   
   p {
-    margin-top: 15px;
+    margin-top: 1.5rem;
     font-weight: bold;
   }
 
@@ -66,12 +77,15 @@
     color: #008000;
   }
 
+  .login-link{
+    font-size: 1.5rem;
+  }
 
   
   .loader1 {
-    width: 24px;
-    height: 24px;
-    border: 5px dotted #080808;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 0.5rem dotted #080808;
     border-radius: 50%;
     display: inline-block;
     position: relative;

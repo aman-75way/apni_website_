@@ -115,7 +115,7 @@ const Login: React.FC = () => {
             <Link className='forget' to='/forgetPassword'> Forget Password ? </Link>
             <div className="inner-container">
               Do not have accounts ?
-              <Link to='/signup'> Signup </Link>
+              <Link className='link-signup' to='/signup'> Signup </Link>
             </div>
           </form>
       </div>
